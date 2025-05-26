@@ -2,11 +2,11 @@ name: Build Windows EXE
 
 on:
   push:
-    paths:
-      - 'sx/**.cpp'
+    paths: sx/main.cpp
+      - 'sx/main.cpp'
       - '.github/workflows/build.yml'
   pull_request:
-    paths:
+    paths: sx/main.cpp
       - 'sx/**.cpp'
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
 
     - name: Compile C++ files
       run: |
-        g++ sx/*.cpp -o sx_program.exe
+        g++ sx/main.cpp -o sx_program.exe
 
     - name: Upload EXE artifact
       uses: actions/upload-artifact@v3
